@@ -6,7 +6,7 @@ SpringBoot+JPA로 구현한 간단한 CRUD의 기능을 수행하는 주소록 R
 ### Structure
 
 Controller  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑↓ entity : DB와 mapping
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ↑↓ entity : DB와 mapping  
 Repository
 
 
