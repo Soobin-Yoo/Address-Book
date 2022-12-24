@@ -63,8 +63,8 @@ public class Users {
 
 | Method | Url | Description | Sample Valid Request Body |
 | ------ | --- | ----------- | ------------------------- |
-| GET    | /users | users 전체 목록 가져오기 | |
-| GET    | /users/{id} | 해당 id 정보 가져오기 | |
+| GET    | /users | users 전체 목록 가져오기 | [JSON](#getall) |
+| GET    | /users/{id} | 해당 id 정보 가져오기 | [JSON](#get) |
 | POST   | /users | user 정보 추가 | [JSON](#post) |
 | PUT    | /users/{id} | user 정보 수정 (passwd, tel) | [JSON](#put) |
 | DELETE | /users/{id} | 해당 id 정보 삭제 | |
@@ -72,6 +72,37 @@ public class Users {
 Postman으로 테스트 진행
 
 ### Sample Valid JSON Request Bodys
+
+##### <a id="getall">Read All User -> /users</a>
+```json
+[
+    {
+        "id": "id1",
+        "name": "홍길동",
+        "passwd": "1234",
+        "birth": "950428",
+        "tel": "010-1234-1234"
+    },
+    {
+        "id": "id2",
+        "name": "유수빈",
+        "passwd": "1234",
+        "birth": "990910",
+        "tel": "010-2345-2345"
+    }
+]
+```
+
+##### <a id="get">Read User -> /users/id2</a>
+```json
+{
+    "id": "id2",
+    "name": "유수빈",
+    "passwd": "1234",
+    "birth": "990910",
+    "tel": "010-2345-2345"
+}
+```
 
 ##### <a id="post">Create User -> /users</a>
 ```json
@@ -84,7 +115,7 @@ Postman으로 테스트 진행
 }
 ```
 
-##### <a id="put">Update User -> /users/{id}</a>
+##### <a id="put">Update User -> /users/id1</a>
 ```json
 {
     "id": "id1",
