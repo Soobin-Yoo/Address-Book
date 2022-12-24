@@ -1,7 +1,7 @@
 ## Address-Book
 
 SpringBoot+JPA로 구현한 간단한 CRUD의 기능을 수행하는 주소록 RestApi  
-
+</br>
 
 ### Steps to Setup
 
@@ -39,7 +39,7 @@ public class AddbookApplication {
 }
 ```
 The app will start running at <http://localhost:8080>
-
+</br>
 
 ### Users Entity
 ```java
@@ -57,7 +57,7 @@ public class Users {
     private String tel;
 }
 ```
-
+</br>
 
 ### Explore Rest APIs
 
