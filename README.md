@@ -41,6 +41,9 @@ public class AddbookApplication {
 The app will start running at <http://localhost:8080>
 </br>
 
+*+ check up [pom.xml](pom.xml) & [application.properties](src/main/resources/application.properties)*
+</br>
+
 ### Users Entity
 ```java
 @Data
