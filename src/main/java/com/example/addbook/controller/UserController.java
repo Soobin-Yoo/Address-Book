@@ -1,6 +1,6 @@
 package com.example.addbook.controller;
 
-import com.example.addbook.Entity.UserEntity;
+import com.example.addbook.Entity.Users;
 import com.example.addbook.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -14,36 +14,36 @@ public class UserController {
     UserRepository userRepository;
 
     @PostMapping("")
-    public UserEntity insertUser(@RequestBody UserEntity user) { //요청객체
+    public Users insertUser(@RequestBody Users user) { //요청객체
         return userRepository.save(user);
     }
 
     @GetMapping("")
-    public List<UserEntity> getAllUsers() {
+    public List<Users> getAllUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("/{userId}")
-    public UserEntity getUserByUserId(@PathVariable String userId) { //url(path)의 해당 userId 값을 매핑
-        return userRepository.findById(userId).orElse(null);
+    @GetMapping("/{id}")
+    public Users getUserByUserId(@PathVariable String id) { //url(path)의 해당 id 값을 매핑
+        return userRepository.findById(id).orElse(null);
     }
 
-    @PutMapping("/{userId}") //getUserByUserId와 같은 url 값을 가지지만 다른 서비스를 수행
-    public void updateUserAdd(@PathVariable String userId, @RequestBody UserEntity user) {
-        userRepository.findById(userId)
+    @PutMapping("/{id}") //getUserByUserId와 같은 url 값을 가지지만 다른 서비스를 수행
+    public void updateUserAdd(@PathVariable String id, @RequestBody Users user) {
+        userRepository.findById(id)
                 .map(userEntity -> {
                     userEntity.setPasswd(user.getPasswd());
-                    userEntity.setUserTel(user.getUserTel());
+                    userEntity.setTel(user.getTel());
                     return userRepository.save(userEntity);
                 })
                 .orElseGet(() -> {
-                    user.setUserId(userId);
+                    user.setId(id);
                     return userRepository.save(user);
                 });
     }
 
-    @DeleteMapping("/{userId}")
-    public void deleteUser(@PathVariable String userId) {
-        userRepository.deleteById(userId);
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable String id) {
+        userRepository.deleteById(id);
     }
 }
